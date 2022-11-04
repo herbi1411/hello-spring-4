@@ -35,4 +35,9 @@ public class MemberService {
     public List<Member> findMembers() { return memberRepository.findAll(); }
 
     public Optional<Member> findOne(Long memberId) { return memberRepository.findById(memberId); }
+
+    public Member deleteMember(Long memberId) {
+        Optional<Member> member = memberRepository.findById(memberId);
+        return member.map(memberRepository::deleteOne).orElse(null);
+    }
 }

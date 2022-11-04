@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>이름</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="member : ${members}">
+        <td th:text="${member.id}"></td>
+        <td th:text="${member.name}"></td>
+        <td>
+          <form th:action="@{members/delete/{member.id}/(member.id = ${member.id})}" method="POST">
+            <input type="submit" value="삭제하기"/>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="/">돌아가기</a>
+</div> <!-- /container -->
+</body>
+</html>

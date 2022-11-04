@@ -49,6 +49,12 @@ public class JdbcTemplateMemberRepositry implements MemberRepository {
     public List<Member> findAll() {
         return jdbcTemplate.query("select * from member", memberRowMaper());
     }
+
+    @Override
+    public Member deleteOne(Member member) {
+        return null;
+    }
+
     private RowMapper<Member> memberRowMaper() {
         return (rs, rowNum) -> {
             Member member = new Member();
