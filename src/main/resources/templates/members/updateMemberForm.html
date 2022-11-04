@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+  <form th:action="@{/members/update/{member.id}(member.id = ${member.id})}" method="POST">
+    <div class="form-group">
+      <label for="name">이름</label>
+      <input type="text" id="name" name="name" placeholder="수정할 이름을
+입력하세요" th:value="${member.name}">
+    </div>
+    <button type="submit">등록</button>
+  </form>
+  <a href="/">돌아가기</a>
+</div> <!-- /container -->
+</body>
+</html>

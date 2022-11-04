@@ -11,4 +11,6 @@ public interface MemberRepository {
     Optional<Member> findByName(String name);
     List<Member> findAll();
     Member deleteOne(Member member);
+
+    Member updateOne(Member member, String newName);
 }

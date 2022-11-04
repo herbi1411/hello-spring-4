@@ -44,4 +44,10 @@ public class JpaMemberRepository implements MemberRepository {
         em.remove(member);
         return member;
     }
+
+    @Override
+    public Member updateOne(Member member, String newName) {
+        member.setName(newName);
+        return member;
+    }
 }

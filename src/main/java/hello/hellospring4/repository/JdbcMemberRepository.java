@@ -98,6 +98,11 @@ public class JdbcMemberRepository implements MemberRepository{
     }
 
     @Override
+    public Member updateOne(Member member, String newName) {
+        return null;
+    }
+
+    @Override
     public Optional<Member> findByName(String name) {
         String sql = "select * from member where name = ?";
         Connection conn = null;

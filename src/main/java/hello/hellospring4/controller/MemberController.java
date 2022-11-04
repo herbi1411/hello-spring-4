@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MemberController {
@@ -44,6 +45,23 @@ public class MemberController {
     @PostMapping(value="/members/delete/{memberId}")
     public String deleteOne(@PathVariable("memberId") String memberId) {
         memberService.deleteMember(Long.parseLong(memberId));
+        return "redirect:/members";
+    }
+
+    @GetMapping(value="/members/update/{memberId}")
+    public String updateView(Model model, @PathVariable("memberId") String memberId) {
+        Optional<Member> member = memberService.findOne(Long.parseLong(memberId));
+        if (member.isPresent()) {
+            model.addAttribute("member", member.get());
+            return "members/updateMemberForm";
+        }
+        else {
+            return "redirect:/";
+        }
+    }
+    @PostMapping(value="/members/update/{memberId}")
+    public String updateOne(MemberForm form, @PathVariable("memberId") String memberId) {
+        memberService.UpdateMember(Long.valueOf(memberId), form.getName());
         return "redirect:/members";
     }
 }

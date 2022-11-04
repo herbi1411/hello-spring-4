@@ -40,4 +40,9 @@ public class MemberService {
         Optional<Member> member = memberRepository.findById(memberId);
         return member.map(memberRepository::deleteOne).orElse(null);
     }
+
+    public Member UpdateMember(Long memberId, String newName) {
+        Optional<Member> member = memberRepository.findById(memberId);
+        return member.map(value -> memberRepository.updateOne(value, newName)).orElse(null);
+    }
 }

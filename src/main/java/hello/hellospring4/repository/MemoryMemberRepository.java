@@ -39,6 +39,11 @@ public class MemoryMemberRepository implements MemberRepository{
         return null;
     }
 
+    @Override
+    public Member updateOne(Member member, String newName) {
+        return null;
+    }
+
     public void clearStore(){
         store.clear();
     }

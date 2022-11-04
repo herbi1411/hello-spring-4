@@ -55,6 +55,11 @@ public class JdbcTemplateMemberRepositry implements MemberRepository {
         return null;
     }
 
+    @Override
+    public Member updateOne(Member member, String newName) {
+        return null;
+    }
+
     private RowMapper<Member> memberRowMaper() {
         return (rs, rowNum) -> {
             Member member = new Member();
